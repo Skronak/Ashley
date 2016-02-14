@@ -12,22 +12,19 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.mygdx.game.MyGame;
-import com.mygdx.game.states.Menu2;
-
-import java.util.Enumeration;
 
 /**
  * Created by PC on 13/11/2015.
  */
-public class Menu implements Screen {
+public class Accueil implements Screen {
 
     Stage stage;
     Texture background;
     MyGame game;
     Skin skin;
-    Menu2 menu2;
+    //SceneChoixOld sceneChoix;
 
-    public Menu(MyGame g) {
+    public Accueil(MyGame g) {
         this.game = g;
     }
 
@@ -46,7 +43,7 @@ public class Menu implements Screen {
         skin = new Skin(Gdx.files.internal("ui/uiskin.json"));
         Label titre = new Label("Interface de jeu", skin);
         TextButton bouton = new TextButton("quitter",skin);
-        bouton.setPosition(200, 150);
+        bouton.setPosition(200, 100);
         //Click Listener
         ClickListener buttonListnener = new ClickListener(){
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
@@ -57,11 +54,13 @@ public class Menu implements Screen {
         bouton.addListener(buttonListnener);
 
         TextButton bouton2 = new TextButton("jouer", skin);
-        bouton2.setPosition(200, 100);
+        bouton2.setPosition(200, 150);
+        //Click Listener
         ClickListener button2Listnener2 = new ClickListener(){
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                menu2 = new Menu2(game);
-                game.setScreen(menu2);
+                SceneChoix sceneChoix = new SceneChoix(game, 1);
+                game.setScreen(sceneChoix);
+
             }
         };
         bouton2.addListener(button2Listnener2);
@@ -109,7 +108,6 @@ public class Menu implements Screen {
     public void dispose() {
         stage.dispose();
         background.dispose();
-
     }
 
 

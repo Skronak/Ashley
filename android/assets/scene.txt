@@ -1,0 +1,4 @@
+idScene;typeScene;text;backgroundFile;this.button1Text;this.button1NextId;this.button2Text;this.button2NextId;this.button3Text;this.button3NextId;this.button4Text;this.button4NextId
+1;1;Tu t’assoies ce matin sur ton fauteuil, un peu la tête dans le cul. L’heure est grave, car au vu des derniers résultats, tu risques fort de te faire renvoyer;forest;Pas grave j'ai l'habitude;2;Fuck je dois appeler mon boss;3;null;null;null;null
+2;1;Que souhaite tu faire desormais?;forest;Pas grave j'ai l'habitude;2;Fuck je dois appeler mon boss;3;null;null;null;null
+3;1;Le telephone sonne, que va tu lui dire?;forest;Salut gros con;2;Il doit y avoir une meprise;3;null;null;null;null
