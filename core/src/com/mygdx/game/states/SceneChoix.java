@@ -162,15 +162,15 @@ public class SceneChoix implements Screen {
         fontmessage.setColor(Color.WHITE);
         fontmessage.draw(stage.getBatch(), text, 250, 400, 300, 1, true);
 
-     // TODO: Test affichage d'un text, A deplacer dans le show
-/*        String debug = "I took one, one cause you left me\n"
+// TODO: Test affichage d'un text, A deplacer dans le show
+        String debug = "I took one, one cause you left me\n"
                 + "Two, two for my family\n"
                 + "Three, three for my heartache\n"
                 + "Four, four for my headaches\n"
                 + "Five, five for my sorrow\n";
-        fontmessage.setColor(Color.BROWN);
-        fontmessage.draw(stage.getBatch(), debug, Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight() / 2);
-*/
+//        fontmessage.setColor(Color.BROWN);
+//        fontmessage.draw(stage.getBatch(), debug, Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight() / 2);
+
         stage.getBatch().end();
         stage.act(Gdx.graphics.getDeltaTime());
         stage.draw();
