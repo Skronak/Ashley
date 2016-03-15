@@ -8,10 +8,13 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextArea;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.utils.Align;
 import com.mygdx.game.MyGame;
 
 /**
@@ -30,6 +33,7 @@ public class SceneText implements Screen {
     String text;
     String sceneType;
     String backgroundFile;
+    private Table table;//ajout Table
 
     /**
      * Constructeur du SceneChoix
@@ -48,13 +52,31 @@ public class SceneText implements Screen {
     @Override
     public void show() {
         stage = new Stage();
+
         // Initialisation des parametres
         initScene();
-        background = new Texture(Gdx.files.internal(backgroundFile.concat(".jpg")));
+
         //Gestion des input
         Gdx.input.setInputProcessor(stage);
         //Skin
         skin = new Skin(Gdx.files.internal("ui/uiskin.json"));
+
+        // creation de la table
+        table = new Table();//ajout Table
+        table.setWidth(stage.getWidth());//ajout Table
+        table.align(Align.top);//ajout Table
+        table.setPosition(0, Gdx.graphics.getHeight());//ajout Table
+        Label label = new Label(text, skin);
+        label.setAlignment(0);
+        label.setWidth(table.getWidth());
+        //label.setWrap(true);
+        //label.setAlignment();
+        table.add(label).width(stage.getWidth()).height(stage.getHeight()/2);
+        table.row();
+        table.add(new Label("YOLO",skin)).width(stage.getWidth()).height(stage.getHeight()/2);
+        table.debugAll();
+        stage.addActor(table);//ajout Table
+
         }
 
     /**
@@ -63,9 +85,10 @@ public class SceneText implements Screen {
      */
     public void initScene() {
         sceneParam = game.getSceneFileManager().getScene(Integer.valueOf(sceneId)).split(";");
-        this.text = sceneParam[1];
-        this.sceneType=sceneParam[2];
+        this.sceneType=sceneParam[1];
+        this.text = sceneParam[2];
         this.backgroundFile = sceneParam[3];
+        background = new Texture(Gdx.files.internal(backgroundFile.concat(".jpg")));
     }
 
     /**
@@ -97,11 +120,11 @@ public class SceneText implements Screen {
 
         stage.getBatch().begin();
         stage.getBatch().draw(background, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        fontmessage.draw(stage.getBatch(), text, 250, 400, 300, 1, true);
+        //fontmessage.draw(stage.getBatch(), text, 250, 400, 300, 1, true);
         stage.getBatch().end();
-        Skin skin = new Skin(Gdx.files.internal("ui/uiskin.json"));
         stage.act(Gdx.graphics.getDeltaTime());
         stage.draw();
+        //Table.drawDebug(stage);
     }
 
 

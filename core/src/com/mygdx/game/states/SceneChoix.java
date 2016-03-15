@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextArea;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
@@ -143,7 +144,9 @@ public class SceneChoix implements Screen {
 
         ClickListener clikListnener = new ClickListener() {
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                SceneChoix sceneChoix = new SceneChoix(game, nextId);
+                SceneText sceneChoix = new SceneText(game, nextId);
+                stage.getRoot().setColor(1, 1, 1, 0);
+      //          stage.getRoot().addAction(stage.fadeIn(0.5f));
                 game.setScreen(sceneChoix);
                 return false;
             }
@@ -162,12 +165,14 @@ public class SceneChoix implements Screen {
         fontmessage.setColor(Color.WHITE);
         fontmessage.draw(stage.getBatch(), text, 250, 400, 300, 1, true);
 
+
+
 // TODO: Test affichage d'un text, A deplacer dans le show
-        String debug = "I took one, one cause you left me\n"
-                + "Two, two for my family\n"
-                + "Three, three for my heartache\n"
-                + "Four, four for my headaches\n"
-                + "Five, five for my sorrow\n";
+//        String debug = "I took one, one cause you left me\n"
+//                + "Two, two for my family\n"
+//                + "Three, three for my heartache\n"
+//                + "Four, four for my headaches\n"
+//                + "Five, five for my sorrow\n";
 //        fontmessage.setColor(Color.BROWN);
 //        fontmessage.draw(stage.getBatch(), debug, Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight() / 2);
 
